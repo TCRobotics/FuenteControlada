@@ -8,7 +8,7 @@ HHHbbbbbbBBBBxxxxxxxxxxxxXXXXXXXXXXXXcccCCC/////////////=====WWWWWVVVVVVVVyyyyyy
 https://about.me/TCRobotics
 ///////////////////////////////////////////////////////////////////////////////*/
 
-#include <digitalWriteFast.h>
+//#include <digitalWriteFast.h>
 
 bool dot[8]={0,0,0,0,0,0,0,0};
 #define OO true
@@ -25,6 +25,7 @@ int timeDot = 60;
 void setup() {
   Serial.begin(115200);
   inputString.reserve(200); // reserve 200 bytes for the inputString
+  /*
   pinModeFast(4,OUTPUT);
   pinModeFast(5,OUTPUT);
   pinModeFast(6,OUTPUT);
@@ -41,6 +42,23 @@ void setup() {
   digitalWriteFast(9,true);
   digitalWriteFast(10,true);
   digitalWriteFast(11,true);
+  */
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  pinMode(7,OUTPUT);
+  pinMode(8,OUTPUT);
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(11,OUTPUT);
+  digitalWrite(4,true);
+  digitalWrite(5,true);
+  digitalWrite(6,true);
+  digitalWrite(7,true);
+  digitalWrite(8,true);
+  digitalWrite(9,true);
+  digitalWrite(10,true);
+  digitalWrite(11,true);
   Serial.println("Que quieres que escriba en agua?");
 }
 
@@ -326,6 +344,7 @@ void serialEvent() {
 }
 
 void waterPrint( boolean x0, boolean x1, boolean x2, boolean x3, boolean x4, boolean x5, boolean x6, boolean x7, int timeDot) {
+  /*
   digitalWriteFast(4,x0);
   digitalWriteFast(5,x1);
   digitalWriteFast(6,x2);
@@ -334,6 +353,15 @@ void waterPrint( boolean x0, boolean x1, boolean x2, boolean x3, boolean x4, boo
   digitalWriteFast(9,x5);
   digitalWriteFast(10,x6);
   digitalWriteFast(11,x7);
+  */
+  digitalWrite(4,x0);
+  digitalWrite(5,x1);
+  digitalWrite(6,x2);
+  digitalWrite(7,x3);
+  digitalWrite(8,x4);
+  digitalWrite(9,x5);
+  digitalWrite(10,x6);
+  digitalWrite(11,x7);
   delay(timeDot);
 
   if(!x0)  Serial.print("0");
